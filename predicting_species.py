@@ -29,6 +29,11 @@ sns.set(rc={'figure.figsize':(11.7,8.27)})
 sns.set(style="whitegrid")
 # %matplotlib inline
 
+pd.set_option("display.max_rows", None)
+pd.set_option("display.max_columns", None)
+pd.set_option("display.width", None)
+pd.set_option("display.max_colwidth", None)
+
 # ml
 from sklearn.metrics import ConfusionMatrixDisplay, classification_report
 from sklearn.model_selection import train_test_split
@@ -246,7 +251,7 @@ y_train.head()
 
 clf = LazyClassifier(verbose=0,ignore_warnings=True, custom_metric=None)
 models,predictions = clf.fit(X_train, X_test, y_train, y_test)
-models
+print( models )
 
-help(LazyClassifier)
+#help(LazyClassifier)
 
