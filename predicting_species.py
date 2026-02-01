@@ -224,6 +224,26 @@ test_acc = accuracy_score(y_test, predictions)
 
 train_acc, test_acc
 
+from sklearn.preprocessing import LabelEncoder
+
+le = LabelEncoder()
+
+
+
+y_train = pd.Series(
+    le.fit_transform(y_train),
+    index=y_train.index
+)
+
+y_test = pd.Series(
+    le.transform(y_test),
+    index=y_test.index
+)
+
+le.classes_
+
+y_train.head()
+
 clf = LazyClassifier(verbose=0,ignore_warnings=True, custom_metric=None)
 models,predictions = clf.fit(X_train, X_test, y_train, y_test)
 models
